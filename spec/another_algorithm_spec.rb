@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../source/function'
+require_relative '../source/another_algorithm'
 
-RSpec.describe Function do
-  subject(:function) { described_class.new }
+RSpec.describe AnotherAlgorithm do
+  subject(:another_algorithm) { described_class.new }
 
   describe 'testing given examples' do
     test_data = [[[2, 10], [3, 4], [6, 9]],
@@ -17,8 +17,8 @@ RSpec.describe Function do
     test_data.each_with_index do |data, index|
       context "given array: #{data}" do
         it 'receives result:' do
-          allow(function).to receive_message_chain(:example_array).and_return([test_data])
-          expect(function.function(data)).to eq(expect_result[index])
+          allow(another_algorithm).to receive_message_chain(:example_array).and_return([test_data])
+          expect(another_algorithm.function(data)).to eq(expect_result[index])
         end
       end
     end

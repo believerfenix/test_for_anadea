@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Function
+class AnotherAlgorithm
   def initialize
     @example_array = [[[2, 10], [3, 4], [6, 9]],
                       [[1, 3], [2, 4], [2, 5], [3, 4], [3, 6], [4, 5], [5, 6]],
@@ -10,15 +10,15 @@ class Function
   end
 
   def function(array)
-    counter = 0
+    new_array = {}
 
-    array = array.sort_by { |element| [element[0], element[1]] }
-
-    (0..array.size - 2).each do |index|
-      counter += 1 if array[index][0] < array[index + 1][0] || array[index][1] > array[index + 1][1]
+    (0..array.size - 1).each do |index|
+      while array[index][0] < array[index][1]
+        new_array[array[index][0]].nil? ? new_array[array[index][0]] = 1 : new_array[array[index][0]] += 1
+        array[index][0] += 1
+      end
     end
-
-    counter
+    new_array.values.max
   end
 
   def output
